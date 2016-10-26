@@ -13,10 +13,13 @@ conv_cache = ['./cachedir/demo_results/'];
 if(~isdir(conv_cache))
         mkdir(conv_cache);
 end
+if(~isdir([conv_cache, 'demo']))
+        mkdir([conv_cache, 'demo']);
+end
 
 % initialize caffe
 NET_FILE_PATH = ['./cachedir/surface_normal_models/'];
-net_file     = [NET_FILE_PATH, best_model.caffemodel'];
+net_file     = [NET_FILE_PATH, 'best_model.caffemodel'];
 DEPLOY_FILE_PATH = ['./net/conv/'];
 deploy_file  = [DEPLOY_FILE_PATH, 'deploy.prototxt']; 
 
