@@ -1,17 +1,24 @@
+# data0 -- for image source
+# data1 -- for the corresponding surface normal values.
+# data2 -- Mask for valid (1)/invalid (0) data.
+
 name: "hcol_net"
 
+# data0 -- for image source
 input: "data0"
 input_dim: 1
 input_dim: 3
 input_dim: 424
 input_dim: 424
 
+# data2 -- Mask for valid (1)/invalid (0) data.
 input: "data2"
 input_dim: 1
 input_dim: 1
 input_dim: 424
 input_dim: 424
 
+# data1 -- for the corresponding surface normal values.
 input: "data1"
 input_dim: 1
 input_dim: 3
@@ -482,7 +489,9 @@ layer {
     bottom: "conv4_3"
     bottom: "conv5_3"
     bottom: "fc7_conv"
+    # Mask for valid (1)/invalid (0) data.
     bottom: "data2"
+	# The corresponding ground truth surface normal values. For deployment, we fill with dummy values.
     bottom: "data1"
     top: "fc5"
     top: "pixel_sn"
