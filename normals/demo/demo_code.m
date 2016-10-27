@@ -36,6 +36,26 @@ image_mean = cat(3,  103.9390*ones(cnn_input_size),...
 		     116.7700*ones(cnn_input_size),...
 		     123.6800*ones(cnn_input_size));
 
+%display('conv1_2');
+%std(reshape(net.params('conv1_2', 1).get_data(), 1, []))
+%mean(reshape(net.params('conv1_2', 1).get_data(), 1, []))
+
+%display('fc7_conv');
+%std(reshape(net.params('fc7_conv', 1).get_data(), 1, []))
+%mean(reshape(net.params('fc7_conv', 1).get_data(), 1, []))
+
+%display('fc6_new');
+%std(reshape(net.params('fc6_new', 1).get_data(), 1, []))
+%mean(reshape(net.params('fc6_new', 1).get_data(), 1, []))
+
+%display('fc7_new');
+%std(reshape(net.params('fc7_new', 1).get_data(), 1, []))
+%mean(reshape(net.params('fc7_new', 1).get_data(), 1, []))
+
+%display('cls_score_new');
+%std(reshape(net.params('cls_score_new', 1).get_data(), 1, []))
+%mean(reshape(net.params('cls_score_new', 1).get_data(), 1, []))
+
 % read the image set for NYU
 img_data = {'demo/img_000001.jpg', 'demo/img_000002.jpg'};
 

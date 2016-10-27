@@ -18,7 +18,7 @@ input_dim: 1
 input_dim: 424
 input_dim: 424
 
-# data1 -- for the corresponding surface normal values.
+# data1 -- for the corresponding antishadow labels.
 input: "data1"
 input_dim: 1
 input_dim: 3
@@ -491,20 +491,20 @@ layer {
     bottom: "fc7_conv"
     # Mask for valid (1)/invalid (0) data.
     bottom: "data2"
-	# The corresponding ground truth surface normal values. For deployment, we fill with dummy values.
+	# The corresponding ground truth antishadow values. For deployment, we fill with dummy values.
     bottom: "data1"
     top: "fc5"
     top: "pixel_sn"
     rand_cat_conv_param{
         num_output: 1500
         rand_selection: false
-	pad_factor: 100
-	pooling_factor: 1
-	pooling_factor: 2
-	pooling_factor: 4
-	pooling_factor: 8
-	pooling_factor: 16
-	pooling_factor: 224
+		pad_factor: 100
+		pooling_factor: 1
+		pooling_factor: 2
+		pooling_factor: 4
+		pooling_factor: 8
+		pooling_factor: 16
+		pooling_factor: 224
     }
 }
 
@@ -598,24 +598,24 @@ layer {
   type: "InnerProduct"
   bottom: "fc7_hcol"
   top: "fc8_hcol"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
+  #param {
+    #lr_mult: 1
+    #decay_mult: 1
+  #}
+  #param {
+    #lr_mult: 2
+    #decay_mult: 0
+  #}
   inner_product_param {
     num_output: 3
-    weight_filler {
-      type: "gaussian"
-      std: 0.0005
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.1
-    }
+	#weight_filler {
+	  #type: "gaussian"
+	  #std: 0.0005
+	#}
+	bias_filler {
+	  type: "constant"
+	  value: 0.1
+	}
   }
 }
 
