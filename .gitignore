@@ -2,3 +2,7 @@ normals/cachedir/demo_results
 normals/cachedir/surface_normal_models
 normals/cachedir/surface_normal_models.tar.gz
 
+dataset/nyu_normals_gt.zip
+dataset/test
+dataset/train
+
